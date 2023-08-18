@@ -4,14 +4,20 @@
     {% include 'global/partials/_head.html' %}
 </head>
 <body>
-    {% include 'global/partials/_header.html' %}
+    <div class="blog-wrapper">
+        {% if site_setup.show_header %}
+            {% include 'global/partials/_header.html' %}
+        {% endif %}
 
-    {% block content %}{% endblock content %}
+        {% block content %}{% endblock content %}
 
-    {% include 'global/partials/_pagination.html' %}
+        {% if site_setup.show_pagination %}
+            {% include 'global/partials/_pagination.html' %}
+        {% endif %}
 
-    {% include 'global/partials/_footer.html' %}
-
-
+        {% if site_setup.show_footer %}
+            {% include 'global/partials/_footer.html' %}
+        {% endif %}
+    </div>
 </body>
 </html>
